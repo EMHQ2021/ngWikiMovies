@@ -1,2 +1,25 @@
-<h1>WikiMovies</h1>
-<router-outlet></router-outlet>
+<div>
+  <nav class="navbar navbar-expand navbar-dark bg-primary">
+    <a routerLink="/" class="navbar-brand">Wiki Movies</a>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a routerLink="register" class="nav-link">Registrar</a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="login" class="nav-link">Login</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a routerLink="/" class="nav-link">Hola Rick!</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

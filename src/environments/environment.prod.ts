@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  API_AUTH: 'https://newhorizons-wikimovies.azurewebsites.net/api/auth/',
 };
