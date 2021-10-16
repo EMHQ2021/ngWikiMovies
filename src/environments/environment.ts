@@ -4,7 +4,17 @@
 
 export const environment = {
   production: false,
-  API_AUTH: 'https://newhorizons-wikimovies.azurewebsites.net/api/auth/',
+  API_WIKIMOVIES: 'https://newhorizons-wikimovies.azurewebsites.net/api/',
+  API_AUTH: {
+    HEADER_KEY: 'Authorization',
+    JWT_BEARER: 'Bearer',
+    PATH_AUTH: 'auth/',
+    ENDPOINT_LOGIN: 'login',
+  },
+  API_MOVIE: {
+    PATH_MOVIE: 'movie/',
+    ENDPOINT_GETALLMOVIES: 'getAll',
+  },
 };
 
 /*

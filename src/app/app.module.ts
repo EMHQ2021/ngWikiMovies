@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PrivateRouteGuard } from './guards/private-route.guard';
 import { PublicRouteGuard } from './guards/public-route.guard';
+import { JwtInterceptorProviders } from './helpers/interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { PublicRouteGuard } from './guards/public-route.guard';
     NotfoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [PrivateRouteGuard, PublicRouteGuard],
+  providers: [JwtInterceptorProviders, PrivateRouteGuard, PublicRouteGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
