@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../core/services/auth.service';
 import { Router } from '@angular/router';
+import { TokenstorageService } from '../core/services/tokenstorage.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private tokenstorageService: TokenstorageService
+  ) {}
   form: any = {
     email: 'admin@newhorizons.edu.pe',
     password: 'NewHorizons2021',
@@ -18,8 +23,10 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.form;
     this.authService.login(email, password).subscribe(
       (data) => {
-        if (data.statusCode === 200) {
-          this.router.navigate(['/home']);
+        if (data.data != undefined) {
+          this.tokenstorageService.saveToken(data.data.token);
+          this.tokenstorageService.saveUser(data.data);
+          window.location.reload();
         }
         console.log(data);
       },

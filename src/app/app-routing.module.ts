@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PrivateRouteGuard } from './guards/private-route.guard';
+import { PublicRouteGuard } from './guards/public-route.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NotfoundComponent } from './notfound/notfound.component';
@@ -9,14 +11,17 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [PrivateRouteGuard],
   },
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [PublicRouteGuard],
   },
   {
     path: 'register',
     component: RegisterComponent,
+    canActivate: [PublicRouteGuard],
   },
   {
     path: '',

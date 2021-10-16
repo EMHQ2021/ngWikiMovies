@@ -1,21 +1,12 @@
 <div>
   <nav class="navbar navbar-expand navbar-dark bg-primary">
     <a routerLink="/" class="navbar-brand">Wiki Movies</a>
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto" *ngIf="isAuthenticated">
       <li class="nav-item">
-        <a routerLink="register" class="nav-link">Registrar</a>
+        <a routerLink="/" class="nav-link">Hola {{ email }}!</a>
       </li>
       <li class="nav-item">
-        <a routerLink="login" class="nav-link">Login</a>
-      </li>
-    </ul>
-
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a routerLink="/" class="nav-link">Hola Rick!</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link">Cerrar Sesión</a>
+        <a class="nav-link" (click)="logout()">Cerrar Sesión</a>
       </li>
     </ul>
   </nav>

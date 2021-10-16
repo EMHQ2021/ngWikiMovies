@@ -9,6 +9,8 @@ import { RegisterComponent } from './register/register.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PrivateRouteGuard } from './guards/private-route.guard';
+import { PublicRouteGuard } from './guards/public-route.guard';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     NotfoundComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
-  providers: [],
+  providers: [PrivateRouteGuard, PublicRouteGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
