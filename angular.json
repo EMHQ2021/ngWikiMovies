@@ -96,7 +96,10 @@
             },
             "development": {
               "browserTarget": "wikimovies:build:development"
-            }
+            },
+          },
+          "options": {
+            "open": true
           },
           "defaultConfiguration": "development"
         },
