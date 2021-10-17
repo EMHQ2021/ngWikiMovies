@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private tokenstorageService: TokenstorageService
   ) {}
+  errorMessage?: string;
   form: any = {
     email: 'admin@newhorizons.edu.pe',
     password: 'NewHorizons2021',
@@ -21,17 +22,18 @@ export class LoginComponent implements OnInit {
 
   handleSubmit(): void {
     const { email, password } = this.form;
-    this.authService.login(email, password).subscribe(
+    this.authService.signIn(email, password).subscribe(
       (data) => {
         if (data.data != undefined) {
           this.tokenstorageService.saveToken(data.data.token);
           this.tokenstorageService.saveUser(data.data);
           window.location.reload();
         }
-        console.log(data);
       },
       (error) => {
-        console.log(error);
+        if (error.status === 404) {
+          this.errorMessage = 'Usuario y/o contraseña incorrecto.';
+        }
       }
     );
   }

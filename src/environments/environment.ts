@@ -10,6 +10,7 @@ export const environment = {
     JWT_BEARER: 'Bearer',
     PATH_AUTH: 'auth/',
     ENDPOINT_LOGIN: 'login',
+    ENDPOINT_SIGNUP: 'signUp',
   },
   API_MOVIE: {
     PATH_MOVIE: 'movie/',

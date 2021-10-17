@@ -1,7 +1,12 @@
 <div class="col-md-12">
   <div class="card card-container">
     <h3>Iniciar Sesión</h3>
-    <form name="form" (ngSubmit)="handleSubmit()">
+    <form
+      name="form"
+      (ngSubmit)="login.form.valid && handleSubmit()"
+      #login="ngForm"
+      novalidate
+    >
       <div class="form-group">
         <label for="email">Correo Electronico</label>
         <input
@@ -10,6 +15,7 @@
           name="email"
           [(ngModel)]="form.email"
           required
+          #email="ngModel"
         />
       </div>
       <div class="form-group">
@@ -21,6 +27,7 @@
           [(ngModel)]="form.password"
           required
           minlength="6"
+          #password="ngModel"
         />
       </div>
       <div class="form-group">
@@ -31,6 +38,18 @@
       <a class="btn btn-primary btn-block" routerLink="/register">
         Registrar
       </a>
+    </div>
+    <div class="alert alert-danger" *ngIf="email.errors && login.submitted">
+      El correo es requerido
+    </div>
+    <div class="alert alert-danger" *ngIf="password.errors && login.submitted">
+      <div *ngIf="password.errors.required">La contraseña es requerida.</div>
+      <div *ngIf="password.errors.minlength">
+        La contraseña debe tener un minimo de 6 caracteres.
+      </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="login.submitted && errorMessage">
+      {{ errorMessage }}
     </div>
   </div>
 </div>
