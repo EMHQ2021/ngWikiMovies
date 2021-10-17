@@ -11,15 +11,13 @@ export class HomeComponent implements OnInit {
   movies?: Movie[];
   constructor(private movieService: MovieService) {}
   ngOnInit(): void {
-    setTimeout(() => {
-      this.movieService.getAllMovies().subscribe(
-        (data) => {
-          this.movies = data.data;
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-    }, 5000);
+    this.movieService.getAllMovies().subscribe(
+      (data) => {
+        this.movies = data.data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

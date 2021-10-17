@@ -14,6 +14,8 @@ import { PublicRouteGuard } from './guards/public-route.guard';
 import { JwtInterceptorProviders } from './helpers/interceptors/jwt.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LayoutComponent } from './layout/layout.component';
+import { DetailComponent } from './detail/detail.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { LayoutComponent } from './layout/layout.component';
     RegisterComponent,
     NotfoundComponent,
     LayoutComponent,
+    DetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,7 @@ import { LayoutComponent } from './layout/layout.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxSkeletonLoaderModule,
   ],
   providers: [JwtInterceptorProviders, PrivateRouteGuard, PublicRouteGuard],
   bootstrap: [AppComponent],

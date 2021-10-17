@@ -15,6 +15,7 @@ export const environment = {
   API_MOVIE: {
     PATH_MOVIE: 'movie/',
     ENDPOINT_GETALLMOVIES: 'getAll',
+    ENDPOINT_GETMOVIEBYID: 'getById',
   },
 };
 

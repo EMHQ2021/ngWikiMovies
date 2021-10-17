@@ -13,4 +13,9 @@ export class MovieService {
       `${environment.API_WIKIMOVIES}${environment.API_MOVIE.PATH_MOVIE}${environment.API_MOVIE.ENDPOINT_GETALLMOVIES}`
     );
   }
+  getMovieById(idMovie: string): Observable<any> {
+    return this.httpClient.get(
+      `${environment.API_WIKIMOVIES}${environment.API_MOVIE.PATH_MOVIE}${environment.API_MOVIE.ENDPOINT_GETMOVIEBYID}/${idMovie}`
+    );
+  }
 }

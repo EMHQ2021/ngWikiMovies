@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DetailComponent } from './detail/detail.component';
 import { PrivateRouteGuard } from './guards/private-route.guard';
 import { PublicRouteGuard } from './guards/public-route.guard';
 import { HomeComponent } from './home/home.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomeComponent,
+      },
+      {
+        path: 'detail/:idMovie',
+        component: DetailComponent,
       },
     ],
     canActivate: [PrivateRouteGuard],

@@ -1,5 +1,6 @@
 <div class="mx-auto mt-4">
   <h1>Peliculas Populares</h1>
+  <button class="btn btn-primary">Crear</button>
   <div class="row mt-4" *ngIf="movies">
     <div class="col-md-4" *ngFor="let movie of movies">
       <div class="card" style="width: 18rem">
@@ -11,11 +12,66 @@
             Duración: {{ movie.duration }}
           </h6>
           <p class="card-text">{{ movie.overview | slice: 0:150 }}...</p>
-          <button class="btn btn-primary mr-2">Ver mas</button>
+          <button
+            class="btn btn-primary mr-2"
+            [routerLink]="['/detail', movie.idMovie]"
+            routerLinkActive="router-link-active"
+          >
+            Ver mas
+          </button>
           <button class="btn btn-warning">Editar</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="mt-4" *ngIf="!movies">Cargando...</div>
+  <div class="row mt-4" *ngIf="!movies">
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem">
+        <ngx-skeleton-loader
+          [theme]="{
+            width: '285px',
+            height: '300px'
+          }"
+        ></ngx-skeleton-loader>
+        <div class="card-body">
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem">
+        <ngx-skeleton-loader
+          [theme]="{
+            width: '285px',
+            height: '300px'
+          }"
+        ></ngx-skeleton-loader>
+        <div class="card-body">
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card" style="width: 18rem">
+        <ngx-skeleton-loader
+          [theme]="{
+            width: '285px',
+            height: '300px'
+          }"
+        ></ngx-skeleton-loader>
+        <div class="card-body">
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+          <ngx-skeleton-loader></ngx-skeleton-loader>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
