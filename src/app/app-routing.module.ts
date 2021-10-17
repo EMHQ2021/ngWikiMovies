@@ -3,14 +3,26 @@ import { RouterModule, Routes } from '@angular/router';
 import { PrivateRouteGuard } from './guards/private-route.guard';
 import { PublicRouteGuard } from './guards/public-route.guard';
 import { HomeComponent } from './home/home.component';
+import { LayoutComponent } from './layout/layout.component';
 import { LoginComponent } from './login/login.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent,
+    path: '',
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full',
+      },
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
+    ],
     canActivate: [PrivateRouteGuard],
   },
   {
@@ -22,11 +34,6 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
     canActivate: [PublicRouteGuard],
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
   },
   {
     path: '**',

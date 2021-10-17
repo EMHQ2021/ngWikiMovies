@@ -13,6 +13,7 @@ import { PrivateRouteGuard } from './guards/private-route.guard';
 import { PublicRouteGuard } from './guards/public-route.guard';
 import { JwtInterceptorProviders } from './helpers/interceptors/jwt.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoginComponent,
     RegisterComponent,
     NotfoundComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
