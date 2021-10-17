@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Movie } from '../core/models/movie.model';
 import { MovieService } from '../core/services/movie.service';
 
 @Component({
@@ -7,15 +8,18 @@ import { MovieService } from '../core/services/movie.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  movies?: Movie[];
   constructor(private movieService: MovieService) {}
   ngOnInit(): void {
-    this.movieService.getAllMovies().subscribe(
-      (data) => {
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    setTimeout(() => {
+      this.movieService.getAllMovies().subscribe(
+        (data) => {
+          this.movies = data.data;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    }, 5000);
   }
 }

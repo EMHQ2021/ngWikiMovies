@@ -1,1 +1,21 @@
-<p>home works!</p>
+<div class="mx-auto mt-4">
+  <h1>Peliculas Populares</h1>
+  <div class="row mt-4" *ngIf="movies">
+    <div class="col-md-4" *ngFor="let movie of movies">
+      <div class="card" style="width: 18rem">
+        <img [src]="movie.imageUrl" alt="Movie" />
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Popularidad: {{ movie.popularity }}% <br />
+            Duración: {{ movie.duration }}
+          </h6>
+          <p class="card-text">{{ movie.overview | slice: 0:150 }}...</p>
+          <button class="btn btn-primary mr-2">Ver mas</button>
+          <button class="btn btn-warning">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4" *ngIf="!movies">Cargando...</div>
+</div>
